@@ -6,6 +6,7 @@ NAME = game
 SRC_DIR = ./src
 BUILD_DIR = ./build
 INCLUDE_DIR = ./include
+ASSETS_DIR = ./assets
 
 ### Variables ###
 CC = gcc
@@ -46,6 +47,7 @@ all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	@$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
+	@cp -r $(ASSETS_DIR) $(BUILD_DIR)/$(ASSETS_DIR)
 
 $(BUILD_DIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
