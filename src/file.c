@@ -4,8 +4,8 @@
 
 #include "file.h"
 
-FILE* file_open(const char* filename) {
-	FILE* file = fopen(filename, "r");
+FILE *file_open(const char *filename) {
+	FILE *file = fopen(filename, "r");
 
 	if (file == NULL) {
 		perror("Cannot open file");
@@ -15,7 +15,7 @@ FILE* file_open(const char* filename) {
 	return file;
 }
 
-void file_close(FILE* file) {
+void file_close(FILE *file) {
 	fclose(file);
 	file = NULL;
 }
