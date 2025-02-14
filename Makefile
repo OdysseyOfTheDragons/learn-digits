@@ -59,5 +59,14 @@ run: $(TARGET)
 clean:
 	rm -rf $(BUILD_DIR_ROOT)
 
+.PHONY: fmt
+fmt: $(SRCS) $(HEADERS)
+	@clang-format -i $^
+
+.PHONY: lint
+lint: $(SRCS) $(HEADERS)
+	@splint $(SRCS) $(HEADERS)
+
+
 ### Include the .d generated Makefiles ###
 -include $(DEPS)
